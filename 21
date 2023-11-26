@@ -1,0 +1,828 @@
+SLIP 21.PHP
+<?php
+
+$arr=array(67,68,88,67,90,62,66,59,77,79,73,64,82,73,65);
+
+$sum=array_sum($arr);
+$avg=$sum/15;
+echo "<h3>Average temprature : $avg</h3><br>";
+
+rsort($arr);
+
+$arr1=array_splice($arr,0,5);
+
+echo "Five Warmest temprature : ";
+
+foreach($arr1 as $v)
+{ 
+echo "$v     ";
+}
+
+?>
+
+
+SLIP 22.HTML
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>slip22</title>
+</head>
+<body>
+<form action="slip22.php" method="post">
+Choose an option :<br><br>
+
+<input type="radio" name="op" value=1> Insert an element in queue<br>
+<input type="radio" name="op" value=2> Delete an element from queue <br>
+<input type="radio" name="op" value=3> Display Content of queue <br><br>
+
+<input type="submit" value="Submit"><br><br>
+
+</form>
+</body>
+</html>
+
+
+SLIP 22.PHP
+
+<?php
+$a=$_POST['op'];
+
+$arr=array(10,12,16,18,45,67);
+
+if($a==1)
+{
+echo "<h3>Inserting element into Queue </h3><br";
+
+echo "Array before inserting element : <br>";
+print_r($arr);
+
+array_unshift($arr,100);
+
+echo "<br><br>Array after inserting element : <br>";
+print_r($arr);
+}
+
+
+else if($a==2)
+{
+echo "<h3>Deleting element from Queue </h3><br>";
+
+echo "Array before deleting element : <br>";
+print_r($arr);
+
+array_shift($arr);
+
+echo "<br><br>Array after deleting element : <br>";
+print_r($arr);
+}
+else if($a==3)
+{
+echo "<h3>Displaying content of Queue </h3><br>";
+print_r($arr);
+}
+
+else
+{
+echo "Plzz choose correct option...!";
+}
+
+?>
+
+
+SLIP 23.HTML
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Slip23</title>
+</head>
+<body>
+<form action="slip23.php" method="post">
+
+Choose a Option : <br><br>
+
+<input type="radio" name="op" value=1> Insert an element in stack<br>
+<input type="radio" name="op" value=2> Delete an element from stack<br>
+<input type="radio" name="op" value=3> Display content of stack <br><br>
+
+<input type="submit" value="Submit"><br>
+
+</form>
+</body>
+</html>
+
+SLIP 23.PHP
+
+<?php
+
+$a=$_POST['op'];
+
+
+$arr = array(10,12,16,18,45,67);
+
+if($a==1)
+{
+echo "<h3> Inserting element into Stack </h3> <br>";
+
+echo "Array before inserting element : <br>";
+print_r($arr);
+
+array_push($arr,100);
+
+echo "<br><br>Array after inserting element : <br> ";
+print_r($arr);
+}
+
+
+else if($a==2)
+{ 
+echo "<h3> Deleting element from Stack </h3><br>";
+
+echo "Array before deleting element : <br>";
+print_r($arr);
+
+array_pop($arr);
+
+echo "<br><br>Array after deleting element : <br>";
+print_r($arr);
+}
+
+
+else if($a==3)
+{
+echo "<h3>Displaying Content of array </h3><br>";
+
+print_r($arr);
+}
+
+
+else
+{
+echo "Plzz choose correct input..!";
+}
+?>
+
+
+SLIP 24.HTML
+<!DOCTYPE html>
+<html>
+<head>
+<title>Slip24</title>
+</head>
+<body>
+<form action="slip24.php" method="post">
+Enter FILE1 name :
+<input type="text" name="file1"><br><br>
+Enter FILE2 name :
+<input type="text" name="file2"><br><br>
+
+<input type="submit" value="Submit">
+</form>
+</body>
+</html>
+
+SLIP 24.PHP
+
+<?php
+
+$f1=$_POST['file1'];
+$f2=$_POST['file2'];
+
+if(!file_exists($f1))
+{
+die("<br>$f1 does not exist<br>");
+}
+
+if(!file_exists($f2))
+{
+die("<br>$f2 does not exist<br>");
+}
+
+$fp1=fopen($f1,'r') or die("unable to open first file");
+$fp2=fopen($f2,'r+') or die("unable to open second file");
+
+$data=fread($fp1,filesize($f1));
+
+fwrite($fp2 , $data);
+
+fclose($fp1);
+fclose($fp2);
+
+echo "<h2> Contents of first file is appended to second file</h2>";
+?>
+
+SLIP 25.HTML
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Slip25</title>
+</head>
+<body>
+<form action="slip25.php" method="post">
+Enter File Name :
+<input type="text" name="file"><br><br>
+
+<input type="radio" name="op" value=1>Display type of file<br>
+<input type="radio" name="op" value=2>Display last modification time of file<br>
+<input type="radio" name="op" value=3>Display size of file<br>
+<input type="radio" name="op" value=4>Delete the file<br><br>
+
+<input type="submit" value="Submit"><br>
+</form>
+</body>
+</html>
+
+SLIP 25.PHP
+<?php
+$f1=$_POST['file'];
+$op=$_POST['op'];
+
+
+
+if(!file_exists($f1))
+{
+die("$f1 does not exist..<br>");
+}
+
+$fp1=fopen($f1,'r');
+
+if($op==1)
+{
+echo "FILE TYPE : ";
+echo filetype($f1);
+}
+
+else if($op==2)
+{
+$mtime=filemtime($f1);
+echo "LAST MODIFICATION TIME : $mtime";
+echo "<br><br>Content last changed ".date("F d Y H:i:s" , filemtime($f1));
+}
+
+else if($op==3)
+{
+$size=filesize($f1);
+echo "SIZE OF FILE IS : $size <br>";
+}
+
+else if($op==4)
+{
+unlink($f1);
+echo "File deleted successfully";
+}
+fclose($fp1);
+
+?>
+
+SLIP 28.PHP
+
+<?php
+$fp=fopen("stud.dat","r");
+
+$h=array("Roll no " , "name" , "os" , "wt" , "ds" , "python" , "java" , "CN" , "total" , "percentage");
+
+echo "<table border=3>";
+
+foreach($h as $v)
+{
+echo "<th> $v </th>";
+}
+
+
+while($r=fscanf($fp , "%d%s%d%d%d%d%d%d"))
+{
+$r[] = $r[2]+$r[3]+$r[4]+$r[5]+$r[6]+$r[7];
+$per=$r[8]/210;
+$r[]=$per*100;
+
+
+echo "<tr>";
+
+foreach($r as $v)
+{
+echo "<td> $v </td>";
+}
+echo "</tr>";
+}
+
+echo "</table>";
+fclose($fp);
+
+?>
+
+
+SLIP 29.HTML
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Slip29</title>
+</head>
+<body>
+<form action="slip29.php" method="post">
+Enter title: <input type=text name=t1>
+<input type=submit value=Update>
+</form>
+</body>
+</html
+
+
+SLIP 29.PHP
+
+<?php
+
+$c=pg_connect("host=192.168.100.252 dbname=tydb3 user=ty3");
+
+if(!$c)
+echo 'not connected';
+
+else
+echo "done \n";
+
+$e=$_GET['t1'];
+
+$q=pg_query("update comm set status ='not done' where cno in (select cno from e_c where eno in (select eno from event where title='0'));");
+
+if(!$q)
+echo "not updated";
+
+else
+echo "\n updated!";
+
+?>
+
+SLIP 30.HTML
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Slip-30</title>
+</head>
+<body>
+<form action="slip30.php" method="POST">
+Enter Compitition Name :
+<input type="text" name="compname"> <br><br>
+<input type="submit" value="Display Ranker"><br>
+</form>
+</body>
+</html>
+
+
+SLIP 30.PHP
+
+<?php
+
+$cname=$_POST['compname'];
+
+$con_string="host=localhost dbname=slip30 port=5432 user=postgres password=nrc";
+
+$con=pg_connect($con_string);
+
+echo "$a <br>";
+
+$q="select * from student,comp,stud_comp where cname='$compname' and rank=1 and stid=sid and cid=compid;";
+
+$rs=pg_query($con,$q) or die("Cannot execute Query");
+
+while($row=pg_fetch_row($rs))
+{
+echo "$row[0] $row[1] $row[2]<br><br>";
+}
+
+pg_close();
+?>
+
+
+
+
+DATASCIENCE
+
+Slip1 &amp; Slip 11
+
+
+Q2A)
+import pandas as pd
+import matplotlib.pyplot as plt
+d = pd.read_csv(&#39;C:\\Users\\DELL\\Untitled Folder\\Iris.csv&#39;)
+ax=plt.subplots(1,1,figsize=(10,8)) //defines size of chart area
+d[&#39;Species&#39;].value_counts().plot.pie() //counts distinct values in dataset
+plt.title(&quot;Iris Species %&quot;)
+plt.show()
+Q2B)
+import pandas as p
+df = pd.read_csv(&#39;C:\\Users\\DELL\\winequality-red.csv&#39;)
+df.shape # no.of rows &amp; cols
+df.describe() #stats data
+df.info() #features
+df.dtypes
+
+
+Slip2 &amp; slip6
+
+Q2 A)
+import pandas as p
+import numpy as n
+d=p.read_csv(&#39;D:\yogita\ss.csv&#39;)
+v=d[&#39;age&#39;].mean()
+v1=d[&#39;salary&#39;].mean()
+d[&#39;age&#39;].fillna(v,inplace=True)
+d[&#39;salary&#39;].fillna(v1,inplace=True)
+print(d)
+Q2B)
+import numpy as np
+import matplotlib.pyplot as plt
+import pandas as p
+df=p.DataFrame({&#39;name&#39;:[&#39;kunal&#39;,&#39;rekha&#39;,&#39;satish&#39;,&#39;ashish&#39;,&#39;radha&#39;],
+&#39;age&#39;:[20,23,22,20,21],
+&#39;per&#39;:[98,80,95,92,85],
+&#39;salary&#39;:[100000,300000,20000,300000,80000] })
+df.plot(x=&quot;name&quot;,y=&quot;salary&quot;)
+plt.show()
+Q2C)
+import pandas as p
+df=p.read_csv(&quot;ht&amp;wt.csv&quot;)
+print(&quot;first 10 rows \n&quot;,df.head(10))
+print(&quot;\n random 20 rows\n&quot;,df.sample(20))
+print(&quot;\n shape \n&quot; ,df.shape)
+
+
+Slip 3
+
+Q2A)
+import pandas as p
+d=p.read_csv(&#39;C:\\Users\\DELL\\Untitled Folder\\Iris.csv&#39;)
+#remove id field from iris dataset
+new_data = d[[&quot;SepalLengthCm&quot;, &quot;SepalWidthCm&quot;, &quot;PetalLengthCm&quot;, &quot;PetalWidthCm&quot;]]
+print(new_data)
+plt.figure(figsize = (10, 7))
+new_data.boxplot()
+Q2B)
+import pandas as p
+df = pd.read_csv(&#39;C:\\Users\\DELL\\ht&amp;wt.csv&#39;)
+df.shape # no.of rows &amp; cols
+df.describe() #stats data
+df.info() #features
+df.dtypes
+
+
+Slip 4 and Slip5
+
+Q2A)
+import matplotlib.pyplot as plt
+import numpy as np
+x = np.random.randn(50)
+y = np.random.randn(50)
+plt.plot(x,y)
+plt.show()
+plt.scatter(x,y)
+plt.show()
+plt.hist(x)
+plt.show()
+plt.boxplot(y, vert=False)
+plt.show()
+Q2b)
+import pandas as p
+df = pd.read_csv(&#39;C:\\Users\\DELL\\User_Data.csv&#39;)
+df.shape # no.of rows &amp; cols
+df.describe() #stats data
+df.info() #features
+df.dtypes
+
+
+Slip 7 &amp;slip29
+
+
+Q2)
+import pandas as p
+from sklearn import preprocessing
+d = pd.read_csv(&#39;D:\\yogita\\Data.csv&#39;)
+label_encoder = preprocessing.LabelEncoder()
+d[&#39;purchased&#39;]= label_encoder.fit_transform(d[&#39;purchased&#39;])
+
+one_hot_encoded_data = p.get_dummies(d, columns = [&#39;country&#39;])
+print(one_hot_encoded_data)
+
+
+Slip 9 &amp;slip 15
+
+Q2A)
+import matplotlib.pyplot as plt
+import numpy as np
+from matplotlib import colors
+from matplotlib.ticker import PercentFormatter
+no_of_balls=50
+x = np.random.randn(50)
+y = np.random.randn(50)
+colors = [np.random.randint(1, 4) for i in range(no_of_balls)]
+plt.plot(x,y)
+plt.show()
+plt.scatter(x,y,c=colors)
+plt.show()
+Q2B)
+from matplotlib import pyplot as plt
+import numpy as np
+# Creating dataset
+subjects = [&#39;TCS&#39;, &#39;Data Science&#39;, &#39;OS&#39;,
+&#39;JAVA&#39;, &#39;PHP&#39;, &#39;Python&#39;]
+marks = [23, 17, 35, 29, 12, 33]
+# Creating plot
+fig = plt.figure(figsize =(10, 7))
+plt.pie(marks, labels = subjects)
+# show plot
+plt.show()
+Q2C)
+import pandas as p
+df = pd.read_csv(&#39;C:\\Users\\DELL\\winequality-red.csv&#39;)
+print(&quot;\n&quot;,df.shape) # no.of rows &amp; cols
+print(&quot;\n&quot;,df.describe()) #stats data
+df.head(3)
+
+
+Slip 10
+
+Q2A)
+import pandas as p
+df=p.read_csv(&quot;ht&amp;wt.csv&quot;)
+print(&quot;mean is \n&quot;,df.mean)
+print(&quot;median is \n&quot;,df.median)
+Q2B)
+def distancesum (x, y, n):
+sum = 0
+
+# for each point, finding distance
+# to rest of the point
+for i in range(n):
+for j in range(i+1,n):
+sum += (abs(x[i] - x[j]) +
+abs(y[i] - y[j]))
+return sum
+x = [ -1, 1, 3, 2 ]
+y = [ 5, 6, 5, 3 ]
+n = len(x)
+print(distancesum(x, y, n) )
+
+
+Slip 12
+
+Q2A)
+import matplotlib.pyplot as plt
+import numpy as np
+x = np.random.randn(50)
+y = np.random.randn(50)
+plt.plot(x,y)
+plt.show()
+plt.scatter(x,y)
+plt.show()
+plt.hist(x)
+plt.show()
+plt.boxplot(y, vert=False)
+plt.show()
+Q2B)
+import pandas as p
+df=p.DataFrame({&#39;name&#39;:[&#39;kunal&#39;,&#39;rekha&#39;,&#39;satish&#39;,&#39;ashish&#39;,&#39;radha&#39;],
+&#39;dept&#39;:[&#39;production&#39;,&#39;computer&#39;,&#39;manufacturing&#39;,None,&#39;manufacturing&#39;],
+&#39;salary&#39;:[100000,300000,20000,300000,80000] })
+print(df)
+d=df.dropna()
+print(d)
+
+
+Slip 13
+
+Q2A)
+import pandas as p
+import matplotlib.pyplot as plt
+d=p.read_csv(&#39;C:\\Users\\DELL\\Untitled Folder\\Iris.csv&#39;)
+fig = d[d.Species==&#39;Iris-setosa&#39;].plot.bar(x=&#39;PetalLengthCm&#39;,y=&#39;PetalWidthCm&#39;,color=&#39;orange&#39;,
+label=&#39;Setosa&#39;)
+d[d.Species==&#39;Iris-versicolor&#39;].plot.bar(x=&#39;PetalLengthCm&#39;,y=&#39;PetalWidthCm&#39;,color=&#39;blue&#39;,
+label=&#39;versicolor&#39;,ax=fig)
+d[d.Species==&#39;Iris-virginica&#39;].plot.bar(x=&#39;PetalLengthCm&#39;,y=&#39;PetalWidthCm&#39;,color=&#39;green&#39;,
+label=&#39;virginica&#39;, ax=fig)
+fig.set_xlabel(&quot;Petal Length&quot;)
+fig.set_ylabel(&quot;Petal Width&quot;)
+fig.set_title(&quot; Petal Length VS Petal Width&quot;)
+
+#fig=plt.gcf()
+#fig.set_size_inches(12,8)
+plt.show()
+Q2B)
+import numpy as n
+d=n.array([[0,1],[2,3]])
+print(d.max())
+print(d.min())
+
+
+Slip14
+
+Q2A)
+import numpy as np
+# Original array
+array = np.arange(5)
+print(array)  
+weights = np.arange(10, 15)
+print(weights)  
+# Weighted average of the given array
+res1 = np.average(array, weights=weights)
+print(res1)
+Q2B)
+import pandas as p
+df = pd.read_csv(&#39;C:\\Users\\DELL\\Advertising.csv&#39;)
+df.shape # no.of rows &amp; cols
+df.describe() #stats data
+df.info() #features
+df.dtypes
+
+
+Slip 16
+
+Q2A)
+from matplotlib import pyplot as plt
+import numpy as np
+# Creating dataset
+subjects = [&#39;TCS&#39;, &#39;Data Science&#39;, &#39;OS&#39;,
+&#39;JAVA&#39;, &#39;PHP&#39;, &#39;Python&#39;]
+marks = [23, 17, 35, 29, 12, 33]
+# Creating plot
+fig = plt.figure(figsize =(10, 7))
+plt.pie(marks, labels = subjects)
+csv
+# show plot
+plt.show()
+Q2B)
+import pandas as p
+import numpy as n
+df=p.DataFrame({&#39;name&#39;:[&#39;kunal&#39;,&#39;rekha&#39;,&#39;satish&#39;,&#39;ashish&#39;,&#39;radha&#39;],
+
+&#39;age&#39;:[20,23,22,20,21],
+&#39;per&#39;:[98,80,95,92,85]})
+print(n.average(df[&#39;age&#39;]))
+print(n.average(df[&#39;per&#39;]))
+
+
+slip 17
+
+Q2B)
+import pandas as p
+df=p.DataFrame({&#39;name&#39;:[&#39;kunal&#39;,&#39;rekha&#39;,&#39;satish&#39;,&#39;ashish&#39;,&#39;radha&#39;],
+&#39;age&#39;:[20,23,22,20,21],
+&#39;salary&#39;:[100000,300000,20000,300000,80000] })
+df
+Q2A)
+import pandas as p
+import matplotlib.pyplot as plt
+d=p.read_csv(&#39;C:\\Users\\DELL\\Untitled Folder\\Iris.csv&#39;)
+fig = d[d.Species==&#39;Iris-setosa&#39;].plot.scatter(x=&#39;PetalLengthCm&#39;,y=&#39;PetalWidthCm&#39;,color=&#39;orange&#39;,
+label=&#39;Setosa&#39;)
+d[d.Species==&#39;Iris-versicolor&#39;].plot.scatter(x=&#39;PetalLengthCm&#39;,y=&#39;PetalWidthCm&#39;,color=&#39;blue&#39;,
+label=&#39;versicolor&#39;,ax=fig)
+fig.set_xlabel(&quot;Petal Length&quot;)
+fig.set_ylabel(&quot;Petal Width&quot;)
+fig.set_title(&quot; Petal Length VS Petal Width&quot;)
+plt.show()
+
+
+Slip 18
+
+Q2A)
+import pandas as p
+d=p.read_csv(&#39;C:\\Users\\DELL\\Untitled Folder\\Iris.csv&#39;)
+#remove id field from iris dataset
+new_data = d[[&quot;SepalLengthCm&quot;, &quot;SepalWidthCm&quot;, &quot;PetalLengthCm&quot;, &quot;PetalWidthCm&quot;]]
+print(new_data)
+plt.figure(figsize = (10, 7))
+new_data.boxplot()
+Q2B)
+import pandas as p
+df = pd.read_csv(&#39;C:\\Users\\DELL\\ht&amp;wt.csv&#39;)
+print(df.head(5))
+print(df.tail(5))
+print(df.sample(10))
+
+
+Slip 19 &amp; Slip 28
+
+Q2A)
+import pandas as p
+df=p.DataFrame(columns =[&#39;name&#39;,&#39;age&#39;,&#39;per&#39;])
+df.loc[0]=[&#39;rajesh&#39;,20,95]
+df.loc[1]=[&#39;suresh&#39;,21,85]
+df.loc[2]=[&#39;avinash&#39;,20,90]
+df.loc[3]=[&#39;kunal&#39;,21,75]
+
+df.loc[4]=[&#39;sakshi&#39;,20,80]
+df.loc[6]=[&#39;xxx&#39;,np.nan,95]
+df.loc[7]=[&#39;suresh&#39;,21,85]
+df.loc[8]=[&#39;archana&#39;,22,91]
+df.loc[9]=[&#39;kunal&#39;,20,np.nan]
+print(df)
+print(df.shape)
+print(df.describe)
+print(df.info())
+print(df.dtypes)
+df[&quot;remark&quot;]=None
+df
+
+
+Slip 20
+
+Q2A)
+import matplotlib.pyplot as plt
+import numpy as np
+x = np.random.randn(50)
+y = np.random.randn(50)
+plt.plot(x,y)
+plt.show()
+plt.scatter(x,y)
+plt.show()
+plt.hist(x)
+plt.show()
+Q2B)
+plt.boxplot(y, vert=False)
+plt.show()
+
+
+Slip 21 and 24
+
+Q2A)
+import pandas as p
+import matplotlib.pyplot as plt
+d=p.read_csv(&#39;C:\\Users\\DELL\\Untitled Folder\\Iris.csv&#39;)
+d[d.Species==&#39;Iris-setosa&#39;].plot.bar(x=&#39;PetalLengthCm&#39;,y=&#39;PetalWidthCm&#39;,color=&#39;orange&#39;,
+label=&#39;Setosa&#39;)
+d[d.Species==&#39;Iris-versicolor&#39;].plot.bar(x=&#39;PetalLengthCm&#39;,y=&#39;PetalWidthCm&#39;,color=&#39;blue&#39;,
+label=&#39;versicolor&#39;)
+d[d.Species==&#39;Iris-virginica&#39;].plot.bar(x=&#39;PetalLengthCm&#39;,y=&#39;PetalWidthCm&#39;,color=&#39;green&#39;,
+label=&#39;virginica&#39;)
+fig.set_xlabel(&quot;Petal Length&quot;)
+fig.set_ylabel(&quot;Petal Width&quot;)
+fig.set_title(&quot; Petal Length VS Petal Width&quot;)
+#fig=plt.gcf()
+#fig.set_size_inches(12,8)
+plt.show()
+
+Q2B)
+import pandas as p
+import matplotlib.pyplot as plt
+d=p.read_csv(&#39;C:\\Users\\DELL\\Untitled Folder\\Iris.csv&#39;)
+d[d.Species==&#39;Iris-setosa&#39;].plot.hist(x=&#39;PetalLengthCm&#39;,y=&#39;PetalWidthCm&#39;,color=&#39;orange&#39;,
+label=&#39;Setosa&#39;)
+d[d.Species==&#39;Iris-versicolor&#39;].plot.hist(x=&#39;PetalLengthCm&#39;,y=&#39;PetalWidthCm&#39;,color=&#39;blue&#39;,
+label=&#39;versicolor&#39;)
+d[d.Species==&#39;Iris-virginica&#39;].plot.hist(x=&#39;PetalLengthCm&#39;,y=&#39;PetalWidthCm&#39;,color=&#39;green&#39;,
+label=&#39;virginica&#39;)
+fig.set_xlabel(&quot;Petal Length&quot;)
+fig.set_ylabel(&quot;Petal Width&quot;)
+fig.set_title(&quot; Petal Length VS Petal Width&quot;)
+#fig=plt.gcf()
+#fig.set_size_inches(12,8)
+plt.show()
+
+
+Slip 25 &amp; slip 26 &amp;Slip 30
+
+Q2A)
+import matplotlib.pyplot as plt
+import numpy as np
+x = np.random.randn(50)
+y = np.random.randn(50)
+plt.plot(x,y)
+plt.show()
+plt.scatter(x,y,color=’green’)
+plt.show()
+plt.hist(x,color=’yellow’)
+plt.show()
+plt.boxplot(y, vert=False)
+plt.show()
+Q2B)
+from matplotlib import pyplot as plt
+import numpy as np
+# Creating dataset
+subjects = [&#39;TCS&#39;, &#39;Data Science&#39;, &#39;OS&#39;,
+&#39;JAVA&#39;, &#39;PHP&#39;, &#39;Python&#39;]
+marks = [23, 17, 35, 29, 12, 33]
+# Creating plot
+fig = plt.figure(figsize =(10, 7))
+plt.pie(marks, labels = subjects)
+# show plot
+plt.show()
+
+
+Slip 27
+
+Q2A)
+import pandas as p
+from sklearn import preprocessing
+d = pd.read_csv(&#39;D:\\yogita\\Data.csv&#39;)
+
+label_encoder = preprocessing.LabelEncoder()
+d[&#39;purchased&#39;]= label_encoder.fit_transform(d[&#39;purchased&#39;])
+one_hot_encoded_data = p.get_dummies(d, columns = [&#39;country&#39;])
+print(one_hot_encoded_data)
+
+
+
+
+
