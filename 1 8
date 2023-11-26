@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .mydiv {
+            height: 250px;
+            width: 320px; 
+            margin-left: 35%;
+                      
+        }
+        .b1{
+            background-color: lightgreen;
+        }
+        .b2{
+            background-color: lightblue;
+        }
+        form{
+            padding-left: 2%;
+            background-size: auto;
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <div class="mydiv">
+        <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<u>Project management</u></h3>
+        <form>
+            <br>
+            <b>Project Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b><input type="text" placeholder="Project Name"><br><br>
+            <b>Assigned to&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b><input type="text" placeholder="Er Merry Pattison"><br><br>
+            <b>Start Date&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b><input type="date" placeholder="dd-mm--yyyy"><br><br>
+            <b>End Date&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b><input type="date" placeholder="dd-mm-yyyy"><br><br>
+            <b>Priority&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b><input type="radio" name="p"> High
+            <input type="radio" name="p">Average
+            <input type="radio" name="p">Low<br><br>
+            <b>Description&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b><textarea></textarea><b></b>
+            <br><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input class="b1" type="submit" value="Submit" name="Submit">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input class="b2" type="reset" value="Reset" name="Clear">
+            <br><br>
+        </form>
+    </div>
+</body>
+
+SLIP 2
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loni</title>
+</head>
+<body bgcolor="pink">
+    <h2><p style="color: blue; text-align: center;">LONI,MAHARASTRA</p></h2>
+
+    <p>LANDMARKS:-</p>
+    <font color="red" size="4">Loni Budrukh</font><br>
+    <font color="purple" size="5">Babhaleshwar Highway</font><br>
+    <font color="white" size="3">JijaMata Chauk</font><br>
+    <font color="violet" size="2">Police-Station Road</font><br>
+
+    <img height="500px" width="750px" src="/home/PC/Pictures/pexels-niklas-jeromin-12567583.jpg">
+</body>
+</html>
+
+SLIP 4
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="1px solid-black">
+        <tr>
+            <th colspan="4">List of Books</th>
+        </tr>
+        <tr>
+            <th rowspan="2">Item.no</th>
+            <th rowspan="2">Item Name</th>
+            <th colspan="2">Price</th>
+        </tr>
+        <tr>
+            <th>Rs</th>
+            <th>Paise</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Programming in Python</td>
+            <td>500</td>
+            <td>50</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Programming in Java</td>
+            <td>345</td>
+            <td>00</td>
+        </tr>
+    </table>    
+</body>
+</html>
+
+SLIP 6
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slip-5</title>
+</head>
+    <frameset rows="35%,200%,30%">
+        <frame name="top" src="slip5-header.html">
+        <frameset cols="35%,*,">
+            <frame src="slip5-middle1.html">
+            <frame src="slip5-middle2.html">
+        </frameset>
+        <frame name="bottom" src="slip5-footer.html">
+    </frameset>
+</html>
+SLIP 6 FOOTER HTML
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body bgcolor="red">
+    <h2>Footer</h2>    
+</body>
+</html>
+SLIP 6 HEADER
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body bgcolor="blue">
+    <h2>Header</h2>    
+</body>
+</html>
+
+
+SLIP 6 MIDDLE
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body bgcolor="lightblue">
+    <h3>Menu</h3>    
+</body>
+</html>
+
+
+SLIP 6 MIDDLE 2.HTML
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body bgcolor="yellow">
+    <p>Create following Bootstrap Web Layout Design and set Header background color Blue,
+        add your College name, set Menu section background color green create menu About Us, In
+        content section add college information, background color yellow, Footer section background
+        color red, add address of college.</p>    
+</body>
+</html>
+
+SLIP 7
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul {
+            list-style-type : none;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+            background-color: lightgray;
+        }
+
+        li {
+            float: left;
+        }
+
+        li a{
+            display: block;
+            color:blue;
+            text-align:center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        li a:hover:not(.active){
+            background-color: darkgray;
+        }
+
+        .active{
+            background-color: darkgray;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li><a class="active" href="home.html">Home</a></li>
+        <li><a href="java.html">Java</a></li>
+        <li><a href="html.html">HTML</a></li>
+        <li><a href="css.html">CSS</a></li>
+    </ul>
+</body>
+</html>
+
+SLIP 8.HTML
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Slip8</title>
+</head>
+<body>
+    <form action="slip8.php" method="post">
+        Enter Large String
+        <input type="text" name="a"><br><br>
+        Enter Small String
+        <input type="text" name="b"><br><br>
+        <input type="submit" value="submit">
+    </form>
+</body>
+</html>
+
+SLIP 8.PHP
+
+<!DOCTYPE html>
+<html>
+<body>
+<?php
+
+$a=$_POST['a'];
+$b=$_POST['b'];
+
+
+$len1=strlen($a);
+$len2=strlen($b);
+
+$cmp=strncasecmp($a,$b,$len2);
+
+echo "<h2> 1 </h2>";
+
+if($cmp==0)
+{
+    echo "Small string appears at the start of large string....<br>";
+}
+else
+{
+    echo "Small String does not appears at the start of large string...<br>";
+}
+
+
+echo "<br> <h2> 2 </h2><br>";
+$pos=strpos($a,$b);
+
+if($pos>0)
+{
+echo "<br> Small string appers at the $pos position of large String..!<br>";
+}
+else
+{
+echo "<br>Small String does not appear in large String<br>";
+}
+echo "<br> <h2> 3 </h2>";
+
+$ccmp=strncasecmp($a,$b,6);
+
+if($ccmp==0)
+{
+    echo "<br>Large String and Small String are same till 6th position<br>";
+}
+else
+{
+    echo "<br>Large String and Small String are not same till 6th position<br>";
+}
+
+?>
+</body>
+</html>
